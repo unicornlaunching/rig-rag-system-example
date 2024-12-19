@@ -146,12 +146,3 @@ The RAG agent:
 - Synthesizes information from multiple chunks
 - Maintains context across questions
 
-
-## Future Improvements
-
-Potential enhancements:
-- Persistent vector storage
-- Support for additional document formats
-- Configurable chunking strategies
-- Local embedding model support
-- Caching mechanism for embeddings
