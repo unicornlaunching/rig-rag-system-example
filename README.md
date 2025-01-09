@@ -1,5 +1,5 @@
 # UPDATE: Added comments to main.rs for Rust noobs. 
-([Arc.fun Rig Agent RAG Code Walkthru](https://github.com/unicornlaunching/rig-rag-system-example/blob/main/Arc_Fun_Rig_RAG_Agent_Code_Walkthru.mp3?raw=true)
+[Arc.fun Rig Agent RAG Code Walkthru](https://github.com/unicornlaunching/rig-rag-system-example/blob/main/Arc_Fun_Rig_RAG_Agent_Code_Walkthru.mp3?raw=true)
 
 # PDF-Based RAG System with Rig
 
