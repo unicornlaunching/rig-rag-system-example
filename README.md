@@ -1,4 +1,5 @@
-# UPDATES: Added comments to main.rs for Rust noobs
+# UPDATE: Added comments to main.rs for Rust noobs. 
+[Code Walkthru]([Link text](https://gabalpha.github.io/read-audio/?p=https://archive.org/serve/TimeTraxMD/01.%20Music%2000.mp3))
 
 # PDF-Based RAG System with Rig
 
