@@ -1,3 +1,5 @@
+# UPDATES: Added comments to main.rs for Rust noobs
+
 # PDF-Based RAG System with Rig
 
 A Retrieval-Augmented Generation (RAG) system built in Rust using the Rig framework. This system processes PDF documents, generates embeddings, and enables interactive Q&A based on the document content.
