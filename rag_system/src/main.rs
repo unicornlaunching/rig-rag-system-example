@@ -1,15 +1,18 @@
+// Import error handling utilities from the anyhow crate
 use anyhow::{Context, Result};
+// Import various components from the rig crate (used for AI/ML operations)
 use rig::{
-    embeddings::EmbeddingsBuilder,
-    loaders::PdfFileLoader,
-    providers::openai::{self, TEXT_EMBEDDING_ADA_002},
-    vector_store::in_memory_store::InMemoryVectorStore,
+    embeddings::EmbeddingsBuilder,        // For creating text embeddings
+    loaders::PdfFileLoader,              // For loading PDF files
+    providers::openai::{self, TEXT_EMBEDDING_ADA_002}, // For OpenAI client
+    vector_store::in_memory_store::InMemoryVectorStore, // For in-memory vector store
     Embed,
 };
-use serde::{Deserialize, Serialize};
-use std::path::PathBuf;
+use serde::{Deserialize, Serialize};        // For serialization and deserialization
+use std::path::PathBuf;                     // For handling file paths
+use dotenv::dotenv;
 
-#[derive(Embed, Clone, Debug, Serialize, Deserialize, Eq, PartialEq)]
+#[derive(Embed, Clone, Debug, Serialize, Deserialize, Eq, PartialEq)]        // Define a struct for documents with embedding capabilities
 struct Document {
     id: String,
     #[embed]
@@ -54,17 +57,18 @@ fn load_pdf(path: PathBuf) -> Result<Vec<String>> {
 }
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result<(), anyhow::Error> {
+    dotenv().ok(); // Load environment variables from .env file
     // Initialize OpenAI client
     let openai_client = openai::Client::from_env();
     
     // Load PDFs using Rig's built-in PDF loader
     let documents_dir = std::env::current_dir()?.join("documents");
     
-    let moores_law_chunks = load_pdf(documents_dir.join("Moores_Law_for_Everything.pdf"))
-        .context("Failed to load Moores_Law_for_Everything.pdf")?;
-    let last_question_chunks = load_pdf(documents_dir.join("The_Last_Question.pdf"))
-        .context("Failed to load The_Last_Question.pdf")?;
+    let moores_law_chunks = load_pdf(documents_dir.join("01.pdf"))
+        .context("Failed to load 01.pdf")?;
+    let last_question_chunks = load_pdf(documents_dir.join("02.pdf"))
+        .context("Failed to load 02.pdf")?;
 
     println!("Successfully loaded and chunked PDF documents");
 
